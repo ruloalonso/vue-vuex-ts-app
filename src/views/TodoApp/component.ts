@@ -3,12 +3,14 @@ import TodoForm from '@/components/TodoForm/component';
 import TodoList from '@/components/TodoList/component';
 import { Action, Getter, State } from 'vuex-class';
 import { Todo } from '@/store/modules/todo/types';
+import Template from './template.vue';
 const namespace: string = 'todoModule';
 
 @Component({
   components: {
     TodoList, TodoForm
-  }
+  },
+  mixins: [Template]
 })
 export default class TodoApp extends Vue {
   @Action('fetchData', {namespace}) fetchData!: Function;
